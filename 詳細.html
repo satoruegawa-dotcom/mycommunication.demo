@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>定常_広告用バナー_1:1 - 詳細</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: ["class"],
+            theme: {
+                extend: {
+                    colors: {
+                        border: "hsl(var(--border))",
+                        input: "hsl(var(--input))",
+                        ring: "hsl(var(--ring))",
+                        background: "hsl(var(--background))",
+                        foreground: "hsl(var(--foreground))",
+                        primary: { DEFAULT: "hsl(var(--primary))", foreground: "hsl(var(--primary-foreground))" },
+                        card: { DEFAULT: "hsl(var(--card))", foreground: "hsl(var(--card-foreground))" },
+                    },
+                    borderRadius: { lg: "var(--radius)", md: "calc(var(--radius) - 2px)", sm: "calc(var(--radius) - 4px)" },
+                },
+            },
+        }
+    </script>
+    <style>
+        :root {
+            --background: 0 0% 100%;
+            --foreground: 222.2 84% 4.9%;
+            --card: 0 0% 100%;
+            --card-foreground: 222.2 84% 4.9%;
+            --primary: 222.2 47.4% 11.2%;
+            --primary-foreground: 210 40% 98%;
+            --border: 214.3 31.8% 91.4%;
+            --radius: 0.5rem;
+        }
+        body { font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        ::-webkit-scrollbar-track { background: transparent; }
+    </style>
+</head>
+<body class="bg-white text-foreground antialiased overflow-hidden">
+<div class="flex h-screen w-full">
+
+    <!-- サイドバー -->
+    <div class="w-20 h-screen bg-white border-r flex flex-col flex-shrink-0 z-20">
+        <div class="h-20 flex items-center justify-center border-b">
+            <img src="https://deca-custom-nmcm-web.vercel.app/deca-x-logo.svg" alt="Logo" class="w-10">
+        </div>
+        <div class="flex-1 py-6 flex flex-col gap-4 items-center">
+            <a href="#" onclick="goBack(); return false;" class="w-14 h-14 rounded-lg flex items-center justify-center transition-colors text-gray-500 hover:bg-gray-50 hover:text-gray-900" title="ダッシュボード">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>
+            </a>
+            <a href="#" class="w-14 h-14 rounded-lg flex items-center justify-center transition-colors text-gray-500 hover:bg-gray-50 hover:text-gray-900" title="設定">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+            </a>
+        </div>
+        <div class="flex flex-col items-center border-t py-4">
+            <div class="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center overflow-hidden border border-gray-200">
+                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" alt="User" class="w-full h-full">
+            </div>
+        </div>
+    </div>
+
+    <!-- メインコンテンツ -->
+    <div class="flex-1 overflow-hidden relative bg-gray-50/30">
+        <div class="h-full overflow-y-auto">
+            <div class="max-w-[1280px] mx-auto p-6 pb-12 space-y-8">
+
+                <!-- ヘッダー -->
+                <div class="flex items-center justify-between h-9 mb-4">
+                    <div class="flex items-center gap-3">
+                        <button onclick="goBack()" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors hover:bg-gray-200 h-8 w-8">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+                        </button>
+                        <h1 class="text-xl font-bold">定常_広告用バナー_1:1</h1>
+                        <div class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold bg-gray-900 text-white">生成完了</div>
+                    </div>
+                </div>
+
+                <!-- ① 入力情報 -->
+                <div class="rounded-xl border bg-white shadow-sm p-6 space-y-4 shadow-[0_4px_12px_rgba(0,0,0,0.02)]">
+                    <h2 class="font-bold text-lg flex items-center gap-2 border-b border-gray-100 pb-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-blue-600"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                        入力情報
+                    </h2>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-y-8 gap-x-6 bg-gray-50/50 p-6 rounded-xl border border-gray-100">
+                        <div class="col-span-2 md:col-span-4">
+                            <p class="text-[13px] text-gray-400 mb-1 font-medium">配信名</p>
+                            <p class="text-[15px] font-bold text-gray-900">定常_広告用バナー_1:1</p>
+                        </div>
+                        <div>
+                            <p class="text-[13px] text-gray-400 mb-1 font-medium">配信日</p>
+                            <p class="text-[15px] font-semibold text-gray-900">2026-06-09</p>
+                        </div>
+                        <div>
+                            <p class="text-[13px] text-gray-400 mb-1 font-medium">クリエイティブ形式</p>
+                            <p class="text-[15px] font-semibold text-gray-900">1:1（正方形）</p>
+                        </div>
+                        <div>
+                            <p class="text-[13px] text-gray-400 mb-1 font-medium">セグメント数</p>
+                            <p class="text-[15px] font-semibold text-gray-900">3</p>
+                        </div>
+                        <div>
+                            <p class="text-[13px] text-gray-400 mb-1 font-medium">配信媒体</p>
+                            <p class="text-[15px] font-semibold text-gray-900">Google / Meta / Yahoo</p>
+                        </div>
+                        <div class="col-span-2 md:col-span-4">
+                            <p class="text-[13px] text-gray-400 mb-1 font-medium">読み込んだLP</p>
+                            <a href="https://www.hoholine.com/kakaritsuke" target="_blank" class="text-[14px] text-blue-600 hover:underline font-medium">https://www.hoholine.com/kakaritsuke</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ② 商品の価値分解 -->
+                <div class="rounded-xl border bg-white shadow-sm shadow-[0_4px_12px_rgba(0,0,0,0.02)] p-6 space-y-4">
+                    <h2 class="font-bold text-lg flex items-center gap-2 border-b border-gray-100 pb-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-green-600"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                        商品の価値分解
+                    </h2>
+                    <p class="text-sm text-gray-600">LPを解析し、保険ほっとライン「かかりつけプラン」の価値提案を機能・体験・情緒の3層に分解します。</p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-2">
+                        <!-- 機能的価値 -->
+                        <div class="bg-white p-5 rounded-lg shadow-sm border border-gray-200 relative overflow-hidden">
+                            <div class="absolute top-0 left-0 w-1 h-full bg-gray-400"></div>
+                            <p class="text-xs text-gray-500 font-bold mb-3">機能的価値</p>
+                            <ul class="text-[13px] text-gray-700 space-y-2.5">
+                                <li class="flex items-start gap-2"><span class="text-gray-400 mt-0.5 flex-shrink-0">✓</span>何度でも無料相談（¥0）</li>
+                                <li class="flex items-start gap-2"><span class="text-gray-400 mt-0.5 flex-shrink-0">✓</span>加入中保険の無料診断・見直し提案</li>
+                                <li class="flex items-start gap-2"><span class="text-gray-400 mt-0.5 flex-shrink-0">✓</span>加入後の給付手続きサポートも対応</li>
+                                <li class="flex items-start gap-2"><span class="text-gray-400 mt-0.5 flex-shrink-0">✓</span>強引な勧誘なし・中立的な提案</li>
+                            </ul>
+                        </div>
+                        <!-- 体験的価値 -->
+                        <div class="bg-white p-5 rounded-lg shadow-sm border border-gray-200 relative overflow-hidden">
+                            <div class="absolute top-0 left-0 w-1 h-full bg-gray-600"></div>
+                            <p class="text-xs text-gray-500 font-bold mb-3">体験的価値</p>
+                            <ul class="text-[13px] text-gray-700 space-y-2.5">
+                                <li class="flex items-start gap-2"><span class="text-gray-400 mt-0.5 flex-shrink-0">✓</span>複雑な保険の疑問を一人のFPが一生涯サポートする「かかりつけ」体験</li>
+                                <li class="flex items-start gap-2"><span class="text-gray-400 mt-0.5 flex-shrink-0">✓</span>20年・100万件以上の実績に裏付けられた信頼感</li>
+                                <li class="flex items-start gap-2"><span class="text-gray-400 mt-0.5 flex-shrink-0">✓</span>何度相談しても無料で気軽に聞ける安心感</li>
+                            </ul>
+                        </div>
+                        <!-- 情緒的価値 -->
+                        <div class="bg-white p-5 rounded-lg shadow-sm border border-gray-200 relative overflow-hidden">
+                            <div class="absolute top-0 left-0 w-1 h-full bg-gray-800"></div>
+                            <p class="text-xs text-gray-500 font-bold mb-3">情緒的価値</p>
+                            <ul class="text-[13px] text-gray-700 space-y-2.5">
+                                <li class="flex items-start gap-2"><span class="text-gray-400 mt-0.5 flex-shrink-0">✓</span>「自分と家族を守れている」という安心と自信</li>
+                                <li class="flex items-start gap-2"><span class="text-gray-400 mt-0.5 flex-shrink-0">✓</span>将来への不安を「任せられる場所がある」という安堵感</li>
+                                <li class="flex items-start gap-2"><span class="text-gray-400 mt-0.5 flex-shrink-0">✓</span>損をしない賢い選択ができているという満足感</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- ターゲット仮説 -->
+                    <div class="bg-gray-50/50 border border-gray-100 rounded-xl p-4 mt-2">
+                        <p class="text-[13px] font-bold text-gray-700 mb-2">ターゲット仮説（分析結果）</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-white border border-gray-300 text-gray-700 text-xs px-3 py-1 rounded-full font-medium">保険の見直しを検討中のミドルシニア</span>
+                            <span class="bg-white border border-gray-300 text-gray-700 text-xs px-3 py-1 rounded-full font-medium">家計最適化を求める子育て世帯</span>
+                            <span class="bg-white border border-gray-300 text-gray-700 text-xs px-3 py-1 rounded-full font-medium">保険未経験の若年・新社会人層</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ③ ペルソナ -->
+                <div class="rounded-xl border bg-white shadow-sm shadow-[0_4px_12px_rgba(0,0,0,0.02)] p-6 space-y-4">
+                    <div class="flex items-center justify-between border-b border-gray-100 pb-3">
+                        <h2 class="font-bold text-lg flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-blue-600"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="10" r="3"/><path d="M7 20.662V19a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v1.662"/></svg>
+                            ペルソナ（インサイト構造化）
+                        </h2>
+                        <div class="inline-flex bg-gray-100 border border-gray-200 rounded-[14px] p-[3px] gap-[3px]">
+                            <button type="button" onclick="switchPersonaTab('persona-a')" class="persona-tab-btn bg-white shadow-sm text-gray-900 px-4 py-1.5 text-sm font-bold rounded-[12px] transition-all">ペルソナ A</button>
+                            <button type="button" onclick="switchPersonaTab('persona-b')" class="persona-tab-btn text-gray-500 hover:bg-gray-200 px-4 py-1.5 text-sm font-bold rounded-[12px] transition-all">ペルソナ B</button>
+                            <button type="button" onclick="switchPersonaTab('persona-c')" class="persona-tab-btn text-gray-500 hover:bg-gray-200 px-4 py-1.5 text-sm font-bold rounded-[12px] transition-all">ペルソナ C</button>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-600">価値分析フレームワークを転用し、3つのターゲット軸ごとの「動機」を構造化します。</p>
+
+                    <!-- ペルソナ A: 見直し -->
+                    <div id="persona-a" class="persona-tab-content pt-2">
+                        <div class="border border-gray-100 rounded-xl p-6 bg-gray-50/50">
+                            <h3 class="font-bold text-gray-800 text-base mb-4 border-b-2 border-gray-400 inline-block pb-1">ペルソナ A：【見直し（ミドルシニア）】<span class="text-sm font-normal text-gray-500 ml-2">（50〜60代 男女）</span></h3>
+                            <div class="space-y-6">
+                                <div>
+                                    <p class="text-xs text-gray-400 font-bold mb-2">ターゲット属性</p>
+                                    <p class="text-[14px] text-gray-900 bg-white p-3 rounded-lg border border-gray-100">子供の独立・定年退職・健康状態の変化をきっかけに、老後に向けた保障の見直しを検討している層。過去に加入した保険の特約が切れるタイミングや、保険料の負担を減らしたいというニーズを持つ。</p>
+                                </div>
+                                <div class="bg-white p-5 rounded-lg shadow-sm border border-gray-200 relative overflow-hidden">
+                                    <div class="absolute top-0 left-0 w-1 h-full bg-gray-600"></div>
+                                    <p class="text-xs text-gray-600 font-bold mb-3">インサイト構造化</p>
+                                    <ul class="text-[14px] text-gray-700 space-y-4">
+                                        <li><span class="font-bold text-gray-900 bg-gray-100 px-2 py-0.5 rounded text-xs mr-2">機能的価値</span>加入中の保険をプロが無料で診断し、過不足のない保障に整理できる確実性。</li>
+                                        <li><span class="font-bold text-gray-900 bg-gray-100 px-2 py-0.5 rounded text-xs mr-2">体験的価値</span>「今のままで本当に大丈夫か」という漠然とした不安を、具体的な数字と根拠で解消してもらえる安心感。</li>
+                                        <li><span class="font-bold text-gray-900 bg-gray-100 px-2 py-0.5 rounded text-xs mr-2">情緒的価値</span>老後・医療・家族の将来を「任せられる相談相手がいる」という心強さ。給付手続きまで伴走してもらえる一生涯の信頼関係。</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-gray-400 font-bold mb-2">主要訴求（3点）</p>
+                                    <div class="space-y-2">
+                                        <div class="flex items-start gap-3 bg-white border border-gray-100 rounded-lg p-3 text-[13px] text-gray-700"><span class="font-bold text-gray-500 flex-shrink-0">1.</span>「これからの備え」へのフォーカス — 医療・老後・家族の具体的な不安を解消</div>
+                                        <div class="flex items-start gap-3 bg-white border border-gray-100 rounded-lg p-3 text-[13px] text-gray-700"><span class="font-bold text-gray-500 flex-shrink-0">2.</span>加入中保険の無料診断 — 「今のままで本当に大丈夫か」をプロが無料チェック</div>
+                                        <div class="flex items-start gap-3 bg-white border border-gray-100 rounded-lg p-3 text-[13px] text-gray-700"><span class="font-bold text-gray-500 flex-shrink-0">3.</span>加入後の継続的なサポート — 給付手続きまで一生涯寄り添う信頼性</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ペルソナ B: 子育て -->
+                    <div id="persona-b" class="persona-tab-content pt-2 hidden">
+                        <div class="border border-gray-100 rounded-xl p-6 bg-gray-50/50">
+                            <h3 class="font-bold text-gray-800 text-base mb-4 border-b-2 border-gray-500 inline-block pb-1">ペルソナ B：【子育て（ファミリー層）】<span class="text-sm font-normal text-gray-500 ml-2">（30〜40代 既婚・子育て世帯）</span></h3>
+                            <div class="space-y-6">
+                                <div>
+                                    <p class="text-xs text-gray-400 font-bold mb-2">ターゲット属性</p>
+                                    <p class="text-[14px] text-gray-900 bg-white p-3 rounded-lg border border-gray-100">子供の誕生・進学・マイホームの購入を機に、教育費や住宅ローンといった将来の大きな出費に備えながら、家計全体の固定費削減も両立させたいと考えている夫婦。</p>
+                                </div>
+                                <div class="bg-white p-5 rounded-lg shadow-sm border border-gray-200 relative overflow-hidden">
+                                    <div class="absolute top-0 left-0 w-1 h-full bg-gray-600"></div>
+                                    <p class="text-xs text-gray-600 font-bold mb-3">インサイト構造化</p>
+                                    <ul class="text-[14px] text-gray-700 space-y-4">
+                                        <li><span class="font-bold text-gray-900 bg-gray-100 px-2 py-0.5 rounded text-xs mr-2">機能的価値</span>今の保険料の無駄を省いて、教育費・住宅ローンへの備えを家計を圧迫せずに整えられる。</li>
+                                        <li><span class="font-bold text-gray-900 bg-gray-100 px-2 py-0.5 rounded text-xs mr-2">体験的価値</span>「子育て世代の不安」に寄り添い、教育費・住宅費というリアルなキーワードで「自分たちのためのサービスだ」と共感できる体験。</li>
+                                        <li><span class="font-bold text-gray-900 bg-gray-100 px-2 py-0.5 rounded text-xs mr-2">情緒的価値</span>100万件以上の実績という具体的な数字で、大切な家族の未来を安心して任せられるという信頼感。</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-gray-400 font-bold mb-2">主要訴求（3点）</p>
+                                    <div class="space-y-2">
+                                        <div class="flex items-start gap-3 bg-white border border-gray-100 rounded-lg p-3 text-[13px] text-gray-700"><span class="font-bold text-gray-500 flex-shrink-0">1.</span>家計（固定費）の最適化 — 「今の保険、家計に合っていますか？」</div>
+                                        <div class="flex items-start gap-3 bg-white border border-gray-100 rounded-lg p-3 text-[13px] text-gray-700"><span class="font-bold text-gray-500 flex-shrink-0">2.</span>子育て世代のライフイベントへの寄り添い — 教育費・住宅ローンを軸にした共感訴求</div>
+                                        <div class="flex items-start gap-3 bg-white border border-gray-100 rounded-lg p-3 text-[13px] text-gray-700"><span class="font-bold text-gray-500 flex-shrink-0">3.</span>豊富な相談実績による信頼 — 20年・100万件以上の具体的な数字</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ペルソナ C: 若年 -->
+                    <div id="persona-c" class="persona-tab-content pt-2 hidden">
+                        <div class="border border-gray-100 rounded-xl p-6 bg-gray-50/50">
+                            <h3 class="font-bold text-gray-800 text-base mb-4 border-b-2 border-gray-400 inline-block pb-1">ペルソナ C：【若年（初めての保険）】<span class="text-sm font-normal text-gray-500 ml-2">（20〜30代前半 独身・新社会人）</span></h3>
+                            <div class="space-y-6">
+                                <div>
+                                    <p class="text-xs text-gray-400 font-bold mb-2">ターゲット属性</p>
+                                    <p class="text-[14px] text-gray-900 bg-white p-3 rounded-lg border border-gray-100">これまで親に保険を任せていた、あるいは保険に一切触れてこなかった未経験者。「そもそも保険が必要なのか」「何から手をつければいいのか全くわからない」という状態にある層。</p>
+                                </div>
+                                <div class="bg-white p-5 rounded-lg shadow-sm border border-gray-200 relative overflow-hidden">
+                                    <div class="absolute top-0 left-0 w-1 h-full bg-gray-600"></div>
+                                    <p class="text-xs text-gray-600 font-bold mb-3">インサイト構造化</p>
+                                    <ul class="text-[14px] text-gray-700 space-y-4">
+                                        <li><span class="font-bold text-gray-900 bg-gray-100 px-2 py-0.5 rounded text-xs mr-2">機能的価値</span>何度でも無料（¥0）で、基本から教えてもらえる。押し売りなしで自分のペースで相談できる。</li>
+                                        <li><span class="font-bold text-gray-900 bg-gray-100 px-2 py-0.5 rounded text-xs mr-2">体験的価値</span>「はじめてでも大丈夫」と言葉で示し、プロがやさしくわかりやすく一から案内してくれる体験。知識ゼロでも恥ずかしくない。</li>
+                                        <li><span class="font-bold text-gray-900 bg-gray-100 px-2 py-0.5 rounded text-xs mr-2">情緒的価値</span>「やっと保険のことを理解できた・決められた」という達成感と、大人としての自立を感じる充足感。</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-gray-400 font-bold mb-2">主要訴求（3点）</p>
+                                    <div class="space-y-2">
+                                        <div class="flex items-start gap-3 bg-white border border-gray-100 rounded-lg p-3 text-[13px] text-gray-700"><span class="font-bold text-gray-500 flex-shrink-0">1.</span>検討ハードルの徹底的な引き下げ — 「保険、何から考えればいい？」「はじめてでも大丈夫」</div>
+                                        <div class="flex items-start gap-3 bg-white border border-gray-100 rounded-lg p-3 text-[13px] text-gray-700"><span class="font-bold text-gray-500 flex-shrink-0">2.</span>初心者向けのわかりやすさ — プロがやさしく・基本からご案内</div>
+                                        <div class="flex items-start gap-3 bg-white border border-gray-100 rounded-lg p-3 text-[13px] text-gray-700"><span class="font-bold text-gray-500 flex-shrink-0">3.</span>ノーリスク・利便性の強調 — 何度でも無料（¥0）、無理な勧誘なし</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ④ 生成されたクリエイティブ -->
+                <div class="rounded-xl border bg-white shadow-sm shadow-[0_4px_12px_rgba(0,0,0,0.02)] p-6 space-y-4">
+                    <div class="flex items-center justify-between border-b border-gray-100 pb-3">
+                        <h2 class="font-bold text-lg flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-purple-600"><path d="M12 2v8"/><path d="m4.93 10.93 1.41 1.41"/><path d="M2 18h2"/><path d="M20 18h2"/><path d="m19.07 10.93-1.41 1.41"/><path d="M22 22H2"/><path d="m8 6 4-4 4 4"/><path d="M16 18a4 4 0 0 0-8 0"/></svg>
+                            生成されたクリエイティブ
+                        </h2>
+                        <span class="text-sm text-gray-500">3枚 ／ 1:1</span>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-2">
+
+                        <!-- 若年向け -->
+                        <div class="flex flex-col border border-gray-200 rounded-xl overflow-hidden bg-white shadow-sm">
+                            <div class="bg-[#f8f9fa] border-b border-gray-100 p-3 aspect-square flex items-center justify-center relative">
+                                <span class="absolute top-3 left-3 bg-gray-900 text-white text-[11px] font-bold px-2 py-1 rounded z-10 shadow-sm">ペルソナ C：若年</span>
+                                <img src="./banner-young.png" alt="若年向けバナー" class="w-full h-full object-cover hover:scale-[1.02] transition-transform duration-300">
+                            </div>
+                            <div class="p-5 flex-1 flex flex-col">
+                                <h4 class="font-bold text-gray-900 text-[15px] mb-2 border-b border-gray-100 pb-2">クリエイティブレバー</h4>
+                                <div class="text-[13px] text-gray-700 leading-relaxed flex-1 space-y-3">
+                                    <div>
+                                        <p class="font-bold text-gray-900 mb-1 border-l-2 border-gray-400 pl-2">【 表現レイヤー 】</p>
+                                        <p>「保険、何から考えればいい？」という疑問文をメインに据え、<b>知識ゼロでも気軽に相談できる</b>心理的ハードルの低さを全面訴求。「はじめての方も安心」「相談無料」を視覚的に強調し、未経験層の行動を後押しします。</p>
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-gray-900 mb-1 border-l-2 border-gray-300 pl-2">【 デザインレバー 】</p>
+                                        <ul class="list-disc list-inside space-y-1 text-[12px]">
+                                            <li>スマホを持つ若い女性写真で「自分ごと」感を演出</li>
+                                            <li>緑の温かみあるトーンで親しみやすさを担保</li>
+                                            <li>¥0・無料を大きく配置しノーリスク感を強調</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 見直し向け -->
+                        <div class="flex flex-col border border-gray-200 rounded-xl overflow-hidden bg-white shadow-sm">
+                            <div class="bg-[#f8f9fa] border-b border-gray-100 p-3 aspect-square flex items-center justify-center relative">
+                                <span class="absolute top-3 left-3 bg-gray-900 text-white text-[11px] font-bold px-2 py-1 rounded z-10 shadow-sm">ペルソナ A：見直し</span>
+                                <img src="./banner-review.png" alt="見直し向けバナー" class="w-full h-full object-cover hover:scale-[1.02] transition-transform duration-300">
+                            </div>
+                            <div class="p-5 flex-1 flex flex-col">
+                                <h4 class="font-bold text-gray-900 text-[15px] mb-2 border-b border-gray-100 pb-2">クリエイティブレバー</h4>
+                                <div class="text-[13px] text-gray-700 leading-relaxed flex-1 space-y-3">
+                                    <div>
+                                        <p class="font-bold text-gray-900 mb-1 border-l-2 border-gray-400 pl-2">【 表現レイヤー 】</p>
+                                        <p>「これからの備え、見直しませんか？」と問いかけ、<b>老後・医療・家族への具体的な不安</b>を優しく解消するトーンで訴求。加入後のサポートまで伝え、「一生涯の伴走者」としての信頼感を醸成します。</p>
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-gray-900 mb-1 border-l-2 border-gray-300 pl-2">【 デザインレバー 】</p>
+                                        <ul class="list-disc list-inside space-y-1 text-[12px]">
+                                            <li>ミドルシニア女性の落ち着いた表情で共感・安心感を演出</li>
+                                            <li>暖色系の柔らかいトーンで上品さと親しみを両立</li>
+                                            <li>ハートアイコンで「寄り添い」を視覚的に表現</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 家族向け -->
+                        <div class="flex flex-col border border-gray-200 rounded-xl overflow-hidden bg-white shadow-sm">
+                            <div class="bg-[#f8f9fa] border-b border-gray-100 p-3 aspect-square flex items-center justify-center relative">
+                                <span class="absolute top-3 left-3 bg-gray-900 text-white text-[11px] font-bold px-2 py-1 rounded z-10 shadow-sm">ペルソナ B：子育て</span>
+                                <img src="./banner-family.png" alt="家族向けバナー" class="w-full h-full object-cover hover:scale-[1.02] transition-transform duration-300">
+                            </div>
+                            <div class="p-5 flex-1 flex flex-col">
+                                <h4 class="font-bold text-gray-900 text-[15px] mb-2 border-b border-gray-100 pb-2">クリエイティブレバー</h4>
+                                <div class="text-[13px] text-gray-700 leading-relaxed flex-1 space-y-3">
+                                    <div>
+                                        <p class="font-bold text-gray-900 mb-1 border-l-2 border-gray-400 pl-2">【 表現レイヤー 】</p>
+                                        <p>「今の保険、家計に合っていますか？」と問いかけ、<b>教育費・住宅費が気になる子育て世代</b>に家計最適化の視点を訴求。100万件以上の実績という数字で信頼性を担保します。</p>
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-gray-900 mb-1 border-l-2 border-gray-300 pl-2">【 デザインレバー 】</p>
+                                        <ul class="list-disc list-inside space-y-1 text-[12px]">
+                                            <li>家族3人の笑顔写真でターゲットが「自分ごと」として認識</li>
+                                            <li>温かみのあるベージュ系背景で家族感・安心感を演出</li>
+                                            <li>「無料相談」バッジを目立つ位置に配置</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function goBack() {
+        if (window.parent && window.parent !== window) {
+            window.parent.postMessage({ type: 'hoholine:navigate', page: 'admin' }, '*');
+            return;
+        }
+        window.location.href = './管理画面.html';
+    }
+
+    function switchPersonaTab(target) {
+        document.querySelectorAll('.persona-tab-content').forEach(el => el.classList.add('hidden'));
+        document.getElementById(target).classList.remove('hidden');
+        document.querySelectorAll('.persona-tab-btn').forEach(btn => {
+            btn.className = 'persona-tab-btn text-gray-500 hover:bg-gray-200 px-4 py-1.5 text-sm font-bold rounded-[12px] transition-all';
+        });
+        event.currentTarget.className = 'persona-tab-btn bg-white shadow-sm text-gray-900 px-4 py-1.5 text-sm font-bold rounded-[12px] transition-all';
+    }
+</script>
+</body>
+</html>
