@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>定常_広告用バナー_1:1 Ver2 - 詳細</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: ["class"],
+            theme: {
+                extend: {
+                    colors: {
+                        border: "hsl(var(--border))",
+                        input: "hsl(var(--input))",
+                        ring: "hsl(var(--ring))",
+                        background: "hsl(var(--background))",
+                        foreground: "hsl(var(--foreground))",
+                        primary: { DEFAULT: "hsl(var(--primary))", foreground: "hsl(var(--primary-foreground))" },
+                        card: { DEFAULT: "hsl(var(--card))", foreground: "hsl(var(--card-foreground))" },
+                    },
+                    borderRadius: { lg: "var(--radius)", md: "calc(var(--radius) - 2px)", sm: "calc(var(--radius) - 4px)" },
+                },
+            },
+        }
+    </script>
+    <style>
+        :root {
+            --background: 0 0% 100%;
+            --foreground: 222.2 84% 4.9%;
+            --card: 0 0% 100%;
+            --card-foreground: 222.2 84% 4.9%;
+            --primary: 222.2 47.4% 11.2%;
+            --primary-foreground: 210 40% 98%;
+            --border: 214.3 31.8% 91.4%;
+            --radius: 0.5rem;
+        }
+        body { font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        ::-webkit-scrollbar-track { background: transparent; }
+    </style>
+</head>
+<body class="bg-white text-foreground antialiased overflow-hidden">
+<div class="flex h-screen w-full">
+
+    <!-- サイドバー -->
+    <div class="w-20 h-screen bg-white border-r flex flex-col flex-shrink-0 z-20">
+        <div class="h-20 flex items-center justify-center border-b">
+            <img src="https://deca-custom-nmcm-web.vercel.app/deca-x-logo.svg" alt="Logo" class="w-10">
+        </div>
+        <div class="flex-1 py-6 flex flex-col gap-4 items-center">
+            <a href="#" onclick="goBack(); return false;" class="w-14 h-14 rounded-lg flex items-center justify-center transition-colors text-gray-500 hover:bg-gray-50 hover:text-gray-900" title="ダッシュボード">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>
+            </a>
+            <a href="#" class="w-14 h-14 rounded-lg flex items-center justify-center transition-colors text-gray-500 hover:bg-gray-50 hover:text-gray-900" title="設定">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+            </a>
+        </div>
+        <div class="flex flex-col items-center border-t py-4">
+            <div class="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center overflow-hidden border border-gray-200">
+                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" alt="User" class="w-full h-full">
+            </div>
+        </div>
+    </div>
+
+    <!-- メインコンテンツ -->
+    <div class="flex-1 overflow-hidden relative bg-gray-50/30">
+        <div class="h-full overflow-y-auto">
+            <div class="max-w-[1280px] mx-auto p-6 pb-12 space-y-8">
+
+                <!-- ヘッダー -->
+                <div class="flex items-center justify-between h-9 mb-4">
+                    <div class="flex items-center gap-3">
+                        <button onclick="goBack()" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors hover:bg-gray-200 h-8 w-8">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+                        </button>
+                        <h1 class="text-xl font-bold">定常_広告用バナー_1:1</h1>
+                        <div class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold bg-indigo-600 text-white">Ver2</div>
+                        <div class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold bg-gray-900 text-white">生成完了</div>
+                    </div>
+                </div>
+
+                <!-- ① 入力情報 -->
+                <div class="rounded-xl border bg-white shadow-sm p-6 space-y-4 shadow-[0_4px_12px_rgba(0,0,0,0.02)]">
+                    <h2 class="font-bold text-lg flex items-center gap-2 border-b border-gray-100 pb-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-blue-600"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                        入力情報
+                    </h2>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-y-8 gap-x-6 bg-gray-50/50 p-6 rounded-xl border border-gray-100">
+                        <div class="col-span-2 md:col-span-4">
+                            <p class="text-[13px] text-gray-400 mb-1 font-medium">配信名</p>
+                            <p class="text-[15px] font-bold text-gray-900">定常_広告用バナー_1:1</p>
+                        </div>
+                        <div>
+                            <p class="text-[13px] text-gray-400 mb-1 font-medium">配信日</p>
+                            <p class="text-[15px] font-semibold text-gray-900">2026-06-09</p>
+                        </div>
+                        <div>
+                            <p class="text-[13px] text-gray-400 mb-1 font-medium">クリエイティブ形式</p>
+                            <p class="text-[15px] font-semibold text-gray-900">1:1（1080×1080）</p>
+                        </div>
+                        <div>
+                            <p class="text-[13px] text-gray-400 mb-1 font-medium">セグメント数</p>
+                            <p class="text-[15px] font-semibold text-gray-900">3</p>
+                        </div>
+                        <div>
+                            <p class="text-[13px] text-gray-400 mb-1 font-medium">配信媒体</p>
+                            <p class="text-[15px] font-semibold text-gray-900">Google / Meta / Yahoo</p>
+                        </div>
+                        <div class="col-span-2 md:col-span-4">
+                            <p class="text-[13px] text-gray-400 mb-1 font-medium">読み込んだLP</p>
+                            <a href="https://www.hoholine.com/kakaritsuke" target="_blank" class="text-[14px] text-blue-600 hover:underline font-medium">https://www.hoholine.com/kakaritsuke</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ② 商品の価値分解（リッチ版） -->
+                <div class="rounded-xl border bg-white shadow-sm shadow-[0_4px_12px_rgba(0,0,0,0.02)] p-6 space-y-6">
+                    <h2 class="font-bold text-lg flex items-center gap-2 border-b border-gray-100 pb-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-green-600"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                        商品の価値分解
+                    </h2>
+
+                    <!-- サービス同定 -->
+                    <div class="rounded-xl border border-green-100 bg-green-50/40 p-5">
+                        <div class="flex items-start gap-3">
+                            <div class="w-9 h-9 rounded-lg bg-green-600/10 flex items-center justify-center flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-green-700"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                            </div>
+                            <div>
+                                <p class="text-[13px] font-bold text-green-800 mb-1">サービス同定：保険ほっとライン『かかりつけの保険サービス』</p>
+                                <p class="text-[13.5px] text-gray-700 leading-relaxed">本商材は「保険の新規加入相談」そのものではなく、<b>加入後の管理・保障点検・各種手続き・給付金/保険金請求まで店舗全体で生涯サポートする“保険のかかりつけ窓口”</b>。広告対象は未契約の新規見込み層（保険未加入者に加え、他社契約はあるが加入後フォローを受けていない層）であり、「保険を売る場所」ではなく「加入後も相談できる管理・点検・請求の窓口」であることを明確に伝える設計とする。<span class="text-gray-400">（運営：マイコミュニケーション株式会社）</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3層 価値分解 -->
+                    <div>
+                        <p class="text-sm text-gray-600 mb-3">LPと提供情報を統合し、価値提案を <b>機能・体験・情緒</b> の3層に分解します。</p>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <!-- 機能的価値 -->
+                            <div class="bg-white p-5 rounded-lg shadow-sm border border-gray-200 relative overflow-hidden">
+                                <div class="absolute top-0 left-0 w-1 h-full bg-gray-400"></div>
+                                <p class="text-xs text-gray-500 font-bold mb-3">機能的価値</p>
+                                <ul class="text-[13px] text-gray-700 space-y-2.5">
+                                    <li class="flex items-start gap-2"><span class="text-gray-400 mt-0.5 flex-shrink-0">✓</span>相談・プラン作成は何度でも無料（¥0）</li>
+                                    <li class="flex items-start gap-2"><span class="text-gray-400 mt-0.5 flex-shrink-0">✓</span>証券ファイル／きちんとファイルで加入保険を一覧化・見える化</li>
+                                    <li class="flex items-start gap-2"><span class="text-gray-400 mt-0.5 flex-shrink-0">✓</span>1年ごとの定期点検（保障内容・満期更新・請求漏れの確認）</li>
+                                    <li class="flex items-start gap-2"><span class="text-gray-400 mt-0.5 flex-shrink-0">✓</span>特定社に偏らない複数社比較・中立的な提案</li>
+                                </ul>
+                            </div>
+                            <!-- 体験的価値 -->
+                            <div class="bg-white p-5 rounded-lg shadow-sm border border-gray-200 relative overflow-hidden">
+                                <div class="absolute top-0 left-0 w-1 h-full bg-gray-600"></div>
+                                <p class="text-xs text-gray-500 font-bold mb-3">体験的価値</p>
+                                <ul class="text-[13px] text-gray-700 space-y-2.5">
+                                    <li class="flex items-start gap-2"><span class="text-gray-400 mt-0.5 flex-shrink-0">✓</span>お客さまカルテで家族構成・加入状況を一元管理し、担当者が変わってもショップ全体で継続サポート</li>
+                                    <li class="flex items-start gap-2"><span class="text-gray-400 mt-0.5 flex-shrink-0">✓</span>店舗来店・自宅訪問・オンラインから相談方法を選べる</li>
+                                    <li class="flex items-start gap-2"><span class="text-gray-400 mt-0.5 flex-shrink-0">✓</span>加入時の一度きりでなく、ライフイベントごとに相談できる「かかりつけ」体験</li>
+                                </ul>
+                            </div>
+                            <!-- 情緒的価値 -->
+                            <div class="bg-white p-5 rounded-lg shadow-sm border border-gray-200 relative overflow-hidden">
+                                <div class="absolute top-0 left-0 w-1 h-full bg-gray-800"></div>
+                                <p class="text-xs text-gray-500 font-bold mb-3">情緒的価値</p>
+                                <ul class="text-[13px] text-gray-700 space-y-2.5">
+                                    <li class="flex items-start gap-2"><span class="text-gray-400 mt-0.5 flex-shrink-0">✓</span>「入った後も相談できる場所がある」という安心感</li>
+                                    <li class="flex items-start gap-2"><span class="text-gray-400 mt-0.5 flex-shrink-0">✓</span>もしもの時に「請求で迷わない準備ができている」という心強さ</li>
+                                    <li class="flex items-start gap-2"><span class="text-gray-400 mt-0.5 flex-shrink-0">✓</span>家族にも分かる状態にして「もしもの時に困らせない」という納得感</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- サービス固有の提供要素（差別化要素） -->
+                    <div>
+                        <p class="text-[13px] font-bold text-gray-700 mb-3 flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-green-600"></span>サービス固有の提供要素（差別化レバー）
+                        </p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                            <div class="border border-gray-200 rounded-lg p-4 bg-gray-50/40">
+                                <p class="text-[13px] font-bold text-gray-900 mb-1">証券ファイル・きちんとファイル</p>
+                                <p class="text-[12.5px] text-gray-600 leading-relaxed">証券・関連書類をまとめ、加入保険を一覧化。「入ったまま」を「管理できる状態」に見える化する。</p>
+                            </div>
+                            <div class="border border-gray-200 rounded-lg p-4 bg-gray-50/40">
+                                <p class="text-[13px] font-bold text-gray-900 mb-1">お客さまカルテ</p>
+                                <p class="text-[12.5px] text-gray-600 leading-relaxed">家族構成・加入状況を一元管理。担当者が変わってもショップ全体で継続サポートし、属人化の不安を解消。</p>
+                            </div>
+                            <div class="border border-gray-200 rounded-lg p-4 bg-gray-50/40">
+                                <p class="text-[13px] font-bold text-gray-900 mb-1">1年ごとの定期点検</p>
+                                <p class="text-[12.5px] text-gray-600 leading-relaxed">保障内容・家族状況・支払い方法・満期更新・住所/名義変更・請求漏れまでを定期確認し、放置を防止。</p>
+                            </div>
+                            <div class="border border-gray-200 rounded-lg p-4 bg-gray-50/40">
+                                <p class="text-[13px] font-bold text-gray-900 mb-1">給付金・保険金 請求サポート</p>
+                                <p class="text-[12.5px] text-gray-600 leading-relaxed">必要書類・記入方法の確認、請求漏れチェックを支援。競合と最も差別化しやすい「加入後」の価値軸。</p>
+                            </div>
+                            <div class="border border-gray-200 rounded-lg p-4 bg-gray-50/40">
+                                <p class="text-[13px] font-bold text-gray-900 mb-1">複数社比較</p>
+                                <p class="text-[12.5px] text-gray-600 leading-relaxed">特定社に偏らず、ライフプランに合わせて比較相談。※「最適」「一番安い」等の断定は使わない。</p>
+                            </div>
+                            <div class="border border-gray-200 rounded-lg p-4 bg-gray-50/40">
+                                <p class="text-[13px] font-bold text-gray-900 mb-1">選べる相談方法</p>
+                                <p class="text-[12.5px] text-gray-600 leading-relaxed">店舗来店・自宅訪問・オンラインに対応。相談開始のハードルを下げ、CVRに寄与。</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 6価値軸 詳細分解 -->
+                    <div>
+                        <p class="text-[13px] font-bold text-gray-700 mb-4 flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-green-600"></span>サービス価値軸（6軸）詳細分解
+                        </p>
+                        <div class="space-y-3">
+
+                            <!-- 価値軸1 -->
+                            <div class="border border-gray-200 rounded-xl overflow-hidden">
+                                <div class="flex items-center gap-3 px-5 py-3 bg-gray-50/80 border-b border-gray-100">
+                                    <span class="text-[12px] font-bold text-gray-400 w-4 flex-shrink-0">1</span>
+                                    <p class="text-[13.5px] font-bold text-gray-900">加入後も相談できる生涯伴走価値</p>
+                                    <span class="ml-auto bg-gray-100 text-gray-500 text-[11px] px-2.5 py-0.5 rounded-full font-medium flex-shrink-0">体験的価値</span>
+                                </div>
+                                <div class="px-5 py-4 space-y-2.5">
+                                    <div class="flex items-start gap-4 text-[12.5px]">
+                                        <span class="font-semibold text-gray-400 w-[170px] flex-shrink-0 pt-px">根拠・事実</span>
+                                        <p class="text-gray-700 leading-relaxed">保険ほっとラインは「加入時だけ」でなくライフイベントのたびに相談できる"かかりつけ窓口"として機能。お客さまカルテで担当者が変わってもショップ全体で継続サポート。</p>
+                                    </div>
+                                    <div class="flex items-start gap-4 text-[12.5px]">
+                                        <span class="font-semibold text-gray-400 w-[170px] flex-shrink-0 pt-px">顧客への意味</span>
+                                        <p class="text-gray-700 leading-relaxed">「入った後も頼れる場所がある」という<b class="text-gray-900">安心感</b>。保険会社ではなく<b class="text-gray-900">"第三者の中立相談先"</b>として長く信頼できる。</p>
+                                    </div>
+                                    <div class="flex items-start gap-4 text-[12.5px]">
+                                        <span class="font-semibold text-gray-400 w-[170px] flex-shrink-0 pt-px">反応しやすい顧客像</span>
+                                        <p class="text-gray-700 leading-relaxed">保険に加入しているが加入後フォローを受けたことがない層。担当者と疎遠になっており<b class="text-gray-900">相談先がない30〜60代</b>。</p>
+                                    </div>
+                                    <div class="flex items-start gap-4 text-[12.5px]">
+                                        <span class="font-semibold text-gray-400 w-[170px] flex-shrink-0 pt-px">訴求アングル</span>
+                                        <p class="text-gray-700 leading-relaxed">「保険は入って終わりではありません」「加入後も相談できる、保険のかかりつけ窓口」</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 価値軸2 -->
+                            <div class="border border-gray-200 rounded-xl overflow-hidden">
+                                <div class="flex items-center gap-3 px-5 py-3 bg-gray-50/80 border-b border-gray-100">
+                                    <span class="text-[12px] font-bold text-gray-400 w-4 flex-shrink-0">2</span>
+                                    <p class="text-[13.5px] font-bold text-gray-900">保険証券・加入状況の見える化価値</p>
+                                    <span class="ml-auto bg-gray-100 text-gray-500 text-[11px] px-2.5 py-0.5 rounded-full font-medium flex-shrink-0">機能的価値</span>
+                                </div>
+                                <div class="px-5 py-4 space-y-2.5">
+                                    <div class="flex items-start gap-4 text-[12.5px]">
+                                        <span class="font-semibold text-gray-400 w-[170px] flex-shrink-0 pt-px">根拠・事実</span>
+                                        <p class="text-gray-700 leading-relaxed">証券ファイル・きちんとファイルで加入保険を一覧化。書類・証券をまとめ「入ったまま」を「管理できる状態」に見える化する固有ツール。</p>
+                                    </div>
+                                    <div class="flex items-start gap-4 text-[12.5px]">
+                                        <span class="font-semibold text-gray-400 w-[170px] flex-shrink-0 pt-px">顧客への意味</span>
+                                        <p class="text-gray-700 leading-relaxed">自分も家族も<b class="text-gray-900">一目で保険状況を把握</b>できる。もしもの時に誰が見ても分かる状態になるという<b class="text-gray-900">納得感</b>。</p>
+                                    </div>
+                                    <div class="flex items-start gap-4 text-[12.5px]">
+                                        <span class="font-semibold text-gray-400 w-[170px] flex-shrink-0 pt-px">反応しやすい顧客像</span>
+                                        <p class="text-gray-700 leading-relaxed">複数の証券・書類が自宅に点在している40〜70代。<b class="text-gray-900">高齢親をサポートする子世代</b>や複数保険加入世帯。</p>
+                                    </div>
+                                    <div class="flex items-start gap-4 text-[12.5px]">
+                                        <span class="font-semibold text-gray-400 w-[170px] flex-shrink-0 pt-px">訴求アングル</span>
+                                        <p class="text-gray-700 leading-relaxed">「保険証券、すぐ見つかりますか」「加入中の保険を一覧化／家族にも分かる整理」</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 価値軸3 -->
+                            <div class="border border-gray-200 rounded-xl overflow-hidden">
+                                <div class="flex items-center gap-3 px-5 py-3 bg-gray-50/80 border-b border-gray-100">
+                                    <span class="text-[12px] font-bold text-gray-400 w-4 flex-shrink-0">3</span>
+                                    <p class="text-[13.5px] font-bold text-gray-900">1年ごとの定期点検による放置防止価値</p>
+                                    <span class="ml-auto bg-gray-100 text-gray-500 text-[11px] px-2.5 py-0.5 rounded-full font-medium flex-shrink-0">機能的価値</span>
+                                </div>
+                                <div class="px-5 py-4 space-y-2.5">
+                                    <div class="flex items-start gap-4 text-[12.5px]">
+                                        <span class="font-semibold text-gray-400 w-[170px] flex-shrink-0 pt-px">根拠・事実</span>
+                                        <p class="text-gray-700 leading-relaxed">年に一度、保障内容・家族状況・支払い方法・満期更新・住所名義変更・請求漏れまでをプロが定期確認する独自サービス。競合の見直し相談と差別化できる継続的接点。</p>
+                                    </div>
+                                    <div class="flex items-start gap-4 text-[12.5px]">
+                                        <span class="font-semibold text-gray-400 w-[170px] flex-shrink-0 pt-px">顧客への意味</span>
+                                        <p class="text-gray-700 leading-relaxed">「入ったまま」を防ぎ、<b class="text-gray-900">今の暮らしに合った保障か</b>プロが定期確認してくれる確実性。放置への漠然とした不安を解消できる。</p>
+                                    </div>
+                                    <div class="flex items-start gap-4 text-[12.5px]">
+                                        <span class="font-semibold text-gray-400 w-[170px] flex-shrink-0 pt-px">反応しやすい顧客像</span>
+                                        <p class="text-gray-700 leading-relaxed">ライフステージが変化したが保険は加入当時のまま放置している<b class="text-gray-900">30〜60代未計画層</b>。結婚・出産・転職・定年などの節目を経た人。</p>
+                                    </div>
+                                    <div class="flex items-start gap-4 text-[12.5px]">
+                                        <span class="font-semibold text-gray-400 w-[170px] flex-shrink-0 pt-px">訴求アングル</span>
+                                        <p class="text-gray-700 leading-relaxed">「入ったままの保険、今の暮らしに合っていますか」「年に一度、保障内容を確認」</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 価値軸4 -->
+                            <div class="border border-gray-200 rounded-xl overflow-hidden">
+                                <div class="flex items-center gap-3 px-5 py-3 bg-gray-50/80 border-b border-gray-100">
+                                    <span class="text-[12px] font-bold text-gray-400 w-4 flex-shrink-0">4</span>
+                                    <p class="text-[13.5px] font-bold text-gray-900">給付金・保険金 請求時の手続き支援価値</p>
+                                    <span class="ml-auto bg-gray-100 text-gray-500 text-[11px] px-2.5 py-0.5 rounded-full font-medium flex-shrink-0">情緒的価値</span>
+                                </div>
+                                <div class="px-5 py-4 space-y-2.5">
+                                    <div class="flex items-start gap-4 text-[12.5px]">
+                                        <span class="font-semibold text-gray-400 w-[170px] flex-shrink-0 pt-px">根拠・事実</span>
+                                        <p class="text-gray-700 leading-relaxed">必要書類・記入方法の確認、請求漏れチェックまで店舗全体でサポート。競合と最も差別化しやすい「加入後」の価値軸。ネット保険・比較サイトが弱い領域。</p>
+                                    </div>
+                                    <div class="flex items-start gap-4 text-[12.5px]">
+                                        <span class="font-semibold text-gray-400 w-[170px] flex-shrink-0 pt-px">顧客への意味</span>
+                                        <p class="text-gray-700 leading-relaxed">「もしもの時、請求で迷わない準備ができている」という<b class="text-gray-900">心強さ</b>。保険の本質「<b class="text-gray-900">受け取る準備</b>」まで整い、自分も家族も慌てないという安心。</p>
+                                    </div>
+                                    <div class="flex items-start gap-4 text-[12.5px]">
+                                        <span class="font-semibold text-gray-400 w-[170px] flex-shrink-0 pt-px">反応しやすい顧客像</span>
+                                        <p class="text-gray-700 leading-relaxed">病気・ケガ・入院時の請求手続きに不安がある層。<b class="text-gray-900">親の入院をきっかけに請求の重要性を感じた人</b>。保険を「使える状態」にしておきたい人。</p>
+                                    </div>
+                                    <div class="flex items-start gap-4 text-[12.5px]">
+                                        <span class="font-semibold text-gray-400 w-[170px] flex-shrink-0 pt-px">訴求アングル</span>
+                                        <p class="text-gray-700 leading-relaxed">「もしもの時、保険の請求で迷わないために」「保険は、受け取る準備まで大切です」</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 価値軸5 -->
+                            <div class="border border-gray-200 rounded-xl overflow-hidden">
+                                <div class="flex items-center gap-3 px-5 py-3 bg-gray-50/80 border-b border-gray-100">
+                                    <span class="text-[12px] font-bold text-gray-400 w-4 flex-shrink-0">5</span>
+                                    <p class="text-[13.5px] font-bold text-gray-900">複数社比較による納得相談価値</p>
+                                    <span class="ml-auto bg-gray-100 text-gray-500 text-[11px] px-2.5 py-0.5 rounded-full font-medium flex-shrink-0">機能的価値</span>
+                                </div>
+                                <div class="px-5 py-4 space-y-2.5">
+                                    <div class="flex items-start gap-4 text-[12.5px]">
+                                        <span class="font-semibold text-gray-400 w-[170px] flex-shrink-0 pt-px">根拠・事実</span>
+                                        <p class="text-gray-700 leading-relaxed">特定社に偏らず複数社の保険をライフプランに合わせて中立的に比較提案。「最適」「一番安い」等の断定を避け、プロと一緒に確認するスタンスで訴求。</p>
+                                    </div>
+                                    <div class="flex items-start gap-4 text-[12.5px]">
+                                        <span class="font-semibold text-gray-400 w-[170px] flex-shrink-0 pt-px">顧客への意味</span>
+                                        <p class="text-gray-700 leading-relaxed">「自分のライフプランに本当に合った保険を、<b class="text-gray-900">プロと一緒に確認できる</b>」という納得感。特定社の営業ではない安心感。</p>
+                                    </div>
+                                    <div class="flex items-start gap-4 text-[12.5px]">
+                                        <span class="font-semibold text-gray-400 w-[170px] flex-shrink-0 pt-px">反応しやすい顧客像</span>
+                                        <p class="text-gray-700 leading-relaxed">保険を比較したいが何社に当たればよいか分からない層。<b class="text-gray-900">既加入だが本当にこれでよいか確認したい</b>人。</p>
+                                    </div>
+                                    <div class="flex items-start gap-4 text-[12.5px]">
+                                        <span class="font-semibold text-gray-400 w-[170px] flex-shrink-0 pt-px">訴求アングル</span>
+                                        <p class="text-gray-700 leading-relaxed">「複数社の保険を比較して相談」「プロと一緒にライフプランに合う保険を確認」</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 価値軸6 -->
+                            <div class="border border-gray-200 rounded-xl overflow-hidden">
+                                <div class="flex items-center gap-3 px-5 py-3 bg-gray-50/80 border-b border-gray-100">
+                                    <span class="text-[12px] font-bold text-gray-400 w-4 flex-shrink-0">6</span>
+                                    <p class="text-[13.5px] font-bold text-gray-900">店舗・訪問・オンラインから選べる相談方法価値</p>
+                                    <span class="ml-auto bg-gray-100 text-gray-500 text-[11px] px-2.5 py-0.5 rounded-full font-medium flex-shrink-0">体験的価値</span>
+                                </div>
+                                <div class="px-5 py-4 space-y-2.5">
+                                    <div class="flex items-start gap-4 text-[12.5px]">
+                                        <span class="font-semibold text-gray-400 w-[170px] flex-shrink-0 pt-px">根拠・事実</span>
+                                        <p class="text-gray-700 leading-relaxed">店舗来店・自宅訪問・オンラインの3方法に対応。相談開始のハードルを下げ、CVRに寄与する入口の柔軟性。</p>
+                                    </div>
+                                    <div class="flex items-start gap-4 text-[12.5px]">
+                                        <span class="font-semibold text-gray-400 w-[170px] flex-shrink-0 pt-px">顧客への意味</span>
+                                        <p class="text-gray-700 leading-relaxed">自分に合った方法で相談を始められる。「<b class="text-gray-900">まずは自宅から気軽に</b>」がCV促進の入口になり、ハードルを感じる層を取り込める。</p>
+                                    </div>
+                                    <div class="flex items-start gap-4 text-[12.5px]">
+                                        <span class="font-semibold text-gray-400 w-[170px] flex-shrink-0 pt-px">反応しやすい顧客像</span>
+                                        <p class="text-gray-700 leading-relaxed">来店が面倒・時間が取れないと感じている層。<b class="text-gray-900">オンライン相談を好む層</b>と対面安心派の両方。</p>
+                                    </div>
+                                    <div class="flex items-start gap-4 text-[12.5px]">
+                                        <span class="font-semibold text-gray-400 w-[170px] flex-shrink-0 pt-px">訴求アングル</span>
+                                        <p class="text-gray-700 leading-relaxed">「来店・訪問・オンラインから選べる」「まずは自宅から相談」</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- 市場・競合文脈 -->
+                    <div class="rounded-xl border border-gray-100 bg-gray-50/50 p-5">
+                        <p class="text-[13px] font-bold text-gray-700 mb-2 flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-gray-500"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+                            市場・競合文脈
+                        </p>
+                        <p class="text-[13px] text-gray-600 leading-relaxed">日本は生命・医療保険の加入率が高く、広告の主戦場は「未加入者への新規加入促進」だけでなく <b>「加入済みだが管理できていない層への相談動機づくり」</b>。ネット保険・比較サイトは加入前の比較に強い一方、加入後の整理・点検・請求支援の印象は弱い。<b>「かかりつけ」＋証券ファイル／きちんとファイル／お客さまカルテ／店舗全体での継続サポート</b>を組み合わせることで、長期的な相談先として差別化する。</p>
+                    </div>
+
+                    <!-- ターゲット仮説（新3セグメント） -->
+                    <div class="bg-white border border-gray-100 rounded-xl p-4">
+                        <p class="text-[13px] font-bold text-gray-700 mb-2">ターゲット仮説（広告反応・相談動機ベースの3セグメント）</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-white border border-gray-300 text-gray-700 text-xs px-3 py-1 rounded-full font-medium">① 保険放置・点検ニーズ層</span>
+                            <span class="bg-white border border-gray-300 text-gray-700 text-xs px-3 py-1 rounded-full font-medium">② 保険整理・家族共有ニーズ層</span>
+                            <span class="bg-white border border-gray-300 text-gray-700 text-xs px-3 py-1 rounded-full font-medium">③ 請求・もしもの不安解消層</span>
+                        </div>
+                        <p class="text-[12px] text-gray-400 mt-2">※ 年齢・家族構成ではなく「広告接触時にどの不安が反応を生むか」で分類。未計画層への気づき喚起を重視。</p>
+                    </div>
+
+                    <!-- NG表現・法務ガード -->
+                    <div class="rounded-xl border border-amber-200 bg-amber-50/50 p-5">
+                        <p class="text-[13px] font-bold text-amber-800 mb-2 flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-amber-600"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                            NG表現・法務ガード（全クリエイティブ共通）
+                        </p>
+                        <p class="text-[12.5px] text-amber-900/80 leading-relaxed">「保険料が<b>必ず</b>安くなる」「給付金・保険金が<b>必ず</b>受け取れる」「<b>絶対</b>安心」「<b>最適</b>な保険が必ず見つかる」等の断定表現は使用しない。請求は「<b>手続きをサポート</b>／<b>必要書類・記入方法を相談</b>／<b>請求漏れを確認</b>」、比較は「<b>複数社から比較</b>／<b>ライフプランに合わせて相談</b>」と中立的に表現。画像内テキスト量は30%以下を目安とする。</p>
+                    </div>
+                </div>
+
+                <!-- ③ ペルソナ（新3セグメント） -->
+                <div class="rounded-xl border bg-white shadow-sm shadow-[0_4px_12px_rgba(0,0,0,0.02)] p-6 space-y-4">
+                    <div class="flex items-center justify-between border-b border-gray-100 pb-3 flex-wrap gap-3">
+                        <h2 class="font-bold text-lg flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-blue-600"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="10" r="3"/><path d="M7 20.662V19a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v1.662"/></svg>
+                            ペルソナ（インサイト構造化）
+                        </h2>
+                        <div class="inline-flex bg-gray-100 border border-gray-200 rounded-[14px] p-[3px] gap-[3px]">
+                            <button type="button" onclick="switchPersonaTab('persona-a')" class="persona-tab-btn bg-white shadow-sm text-gray-900 px-4 py-1.5 text-sm font-bold rounded-[12px] transition-all">① 放置・点検</button>
+                            <button type="button" onclick="switchPersonaTab('persona-b')" class="persona-tab-btn text-gray-500 hover:bg-gray-200 px-4 py-1.5 text-sm font-bold rounded-[12px] transition-all">② 整理・家族共有</button>
+                            <button type="button" onclick="switchPersonaTab('persona-c')" class="persona-tab-btn text-gray-500 hover:bg-gray-200 px-4 py-1.5 text-sm font-bold rounded-[12px] transition-all">③ 請求・不安解消</button>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-600">価値軸を転用し、3つの相談動機ごとに「心理・課題・訴求」を構造化します。</p>
+
+                    <!-- ペルソナ A: 保険放置・点検 -->
+                    <div id="persona-a" class="persona-tab-content pt-2">
+                        <div class="border border-gray-100 rounded-xl p-6 bg-gray-50/50">
+                            <div class="flex items-center justify-between flex-wrap gap-2 mb-4">
+                                <h3 class="font-bold text-gray-800 text-base border-b-2 border-gray-400 inline-block pb-1">セグメント①：保険放置・点検ニーズ層<span class="text-sm font-normal text-gray-500 ml-2">（30代後半〜60代）</span></h3>
+                                <div class="flex items-center gap-2 text-[11px]">
+                                    <span class="bg-white border border-gray-200 text-gray-600 px-2 py-0.5 rounded-full">主要価値軸：定期点検による放置防止</span>
+                                </div>
+                            </div>
+                            <div class="space-y-6">
+                                <div>
+                                    <p class="text-xs text-gray-400 font-bold mb-2">ターゲット属性</p>
+                                    <p class="text-[14px] text-gray-900 bg-white p-3 rounded-lg border border-gray-100">結婚・出産・住宅購入・転職・子の独立・定年などで暮らしは変わったが、保険は加入当時のまま。他社契約はあるが担当者と疎遠で、保障内容・満期更新・請求条件を細かく把握していない未計画層。</p>
+                                </div>
+                                <div class="bg-white p-5 rounded-lg shadow-sm border border-gray-200 relative overflow-hidden">
+                                    <div class="absolute top-0 left-0 w-1 h-full bg-gray-600"></div>
+                                    <p class="text-xs text-gray-600 font-bold mb-3">インサイト構造化</p>
+                                    <ul class="text-[14px] text-gray-700 space-y-4">
+                                        <li><span class="font-bold text-gray-900 bg-gray-100 px-2 py-0.5 rounded text-xs mr-2">機能的価値</span>加入中の保険を1年ごとにプロが点検し、満期更新・支払い方法・請求漏れまで確認できる確実性。</li>
+                                        <li><span class="font-bold text-gray-900 bg-gray-100 px-2 py-0.5 rounded text-xs mr-2">体験的価値</span>「入ったままの保険」という問いかけで、売り込みではなく“点検・確認”として気軽に相談を始められる体験。</li>
+                                        <li><span class="font-bold text-gray-900 bg-gray-100 px-2 py-0.5 rounded text-xs mr-2">情緒的価値</span>今の暮らしに保険が合っているか分からない漠然とした不安を、相談先がある安心へ変える心強さ。</li>
+                                    </ul>
+                                </div>
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <div>
+                                        <p class="text-xs text-gray-400 font-bold mb-2">主要訴求（3点）</p>
+                                        <div class="space-y-2">
+                                            <div class="flex items-start gap-3 bg-white border border-gray-100 rounded-lg p-3 text-[13px] text-gray-700"><span class="font-bold text-gray-500 flex-shrink-0">1.</span>「点検・確認・相談」を前面に（売り込み感を出さない）</div>
+                                            <div class="flex items-start gap-3 bg-white border border-gray-100 rounded-lg p-3 text-[13px] text-gray-700"><span class="font-bold text-gray-500 flex-shrink-0">2.</span>1年ごとの定期点検＝サービス固有価値で見直し競合と差別化</div>
+                                            <div class="flex items-start gap-3 bg-white border border-gray-100 rounded-lg p-3 text-[13px] text-gray-700"><span class="font-bold text-gray-500 flex-shrink-0">3.</span>保険内容・満期更新・請求手続きまで無料で相談できる安心</div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs text-gray-400 font-bold mb-2">想定オブジェクション</p>
+                                        <div class="space-y-2">
+                                            <div class="bg-white border border-gray-100 rounded-lg p-3 text-[13px] text-gray-600">「相談すると新しい保険をすすめられそう」</div>
+                                            <div class="bg-white border border-gray-100 rounded-lg p-3 text-[13px] text-gray-600">「今すぐ困っていないので後回しでよい」</div>
+                                            <div class="bg-white border border-gray-100 rounded-lg p-3 text-[13px] text-gray-600">「相談したら契約しなければいけないのでは」</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ペルソナ B: 保険整理・家族共有 -->
+                    <div id="persona-b" class="persona-tab-content pt-2 hidden">
+                        <div class="border border-gray-100 rounded-xl p-6 bg-gray-50/50">
+                            <div class="flex items-center justify-between flex-wrap gap-2 mb-4">
+                                <h3 class="font-bold text-gray-800 text-base border-b-2 border-gray-500 inline-block pb-1">セグメント②：保険整理・家族共有ニーズ層<span class="text-sm font-normal text-gray-500 ml-2">（40〜70代 複数保険加入世帯・子世代）</span></h3>
+                                <div class="flex items-center gap-2 text-[11px]">
+                                    <span class="bg-white border border-gray-200 text-gray-600 px-2 py-0.5 rounded-full">主要価値軸：加入状況の見える化</span>
+                                </div>
+                            </div>
+                            <div class="space-y-6">
+                                <div>
+                                    <p class="text-xs text-gray-400 font-bold mb-2">ターゲット属性</p>
+                                    <p class="text-[14px] text-gray-900 bg-white p-3 rounded-lg border border-gray-100">複数の保険証券・通知書類が自宅に点在し、自分でも全体像を把握しきれていない層。配偶者・子ども・親の保険も含め、もしもの時に誰が見ても分かる状態にしておきたい。高齢親をサポートする子世代と相性がよい。</p>
+                                </div>
+                                <div class="bg-white p-5 rounded-lg shadow-sm border border-gray-200 relative overflow-hidden">
+                                    <div class="absolute top-0 left-0 w-1 h-full bg-gray-600"></div>
+                                    <p class="text-xs text-gray-600 font-bold mb-3">インサイト構造化</p>
+                                    <ul class="text-[14px] text-gray-700 space-y-4">
+                                        <li><span class="font-bold text-gray-900 bg-gray-100 px-2 py-0.5 rounded text-xs mr-2">機能的価値</span>証券ファイル／きちんとファイルで加入保険を一覧化し、「入っているだけ」を「把握できる状態」にできる。</li>
+                                        <li><span class="font-bold text-gray-900 bg-gray-100 px-2 py-0.5 rounded text-xs mr-2">体験的価値</span>比較・乗り換えではなく「まず整理する」を入口にでき、家族にも分かる形で共有できる体験。</li>
+                                        <li><span class="font-bold text-gray-900 bg-gray-100 px-2 py-0.5 rounded text-xs mr-2">情緒的価値</span>お客さまカルテによる継続サポートで、もしもの時に家族を困らせないという納得感・安心。</li>
+                                    </ul>
+                                </div>
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <div>
+                                        <p class="text-xs text-gray-400 font-bold mb-2">主要訴求（3点）</p>
+                                        <div class="space-y-2">
+                                            <div class="flex items-start gap-3 bg-white border border-gray-100 rounded-lg p-3 text-[13px] text-gray-700"><span class="font-bold text-gray-500 flex-shrink-0">1.</span>「見直す」より「整理する／家族にも分かる状態に」を前面に</div>
+                                            <div class="flex items-start gap-3 bg-white border border-gray-100 rounded-lg p-3 text-[13px] text-gray-700"><span class="font-bold text-gray-500 flex-shrink-0">2.</span>証券ファイル・きちんとファイルの具体機能を視覚化</div>
+                                            <div class="flex items-start gap-3 bg-white border border-gray-100 rounded-lg p-3 text-[13px] text-gray-700"><span class="font-bold text-gray-500 flex-shrink-0">3.</span>散らばった書類→整理されたファイルの対比で自分ごと化</div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs text-gray-400 font-bold mb-2">想定オブジェクション</p>
+                                        <div class="space-y-2">
+                                            <div class="bg-white border border-gray-100 rounded-lg p-3 text-[13px] text-gray-600">「書類整理だけで相談してよいのか分からない」</div>
+                                            <div class="bg-white border border-gray-100 rounded-lg p-3 text-[13px] text-gray-600">「他社で入った保険も見てもらえるのか」</div>
+                                            <div class="bg-white border border-gray-100 rounded-lg p-3 text-[13px] text-gray-600">「整理したら新しい保険をすすめられそう」</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ペルソナ C: 請求・もしもの不安解消 -->
+                    <div id="persona-c" class="persona-tab-content pt-2 hidden">
+                        <div class="border border-gray-100 rounded-xl p-6 bg-gray-50/50">
+                            <div class="flex items-center justify-between flex-wrap gap-2 mb-4">
+                                <h3 class="font-bold text-gray-800 text-base border-b-2 border-gray-400 inline-block pb-1">セグメント③：請求・もしもの不安解消層<span class="text-sm font-normal text-gray-500 ml-2">（医療・がん保険加入／請求経験少）</span></h3>
+                                <div class="flex items-center gap-2 text-[11px]">
+                                    <span class="bg-white border border-gray-200 text-gray-600 px-2 py-0.5 rounded-full">主要価値軸：請求手続き支援</span>
+                                </div>
+                            </div>
+                            <div class="space-y-6">
+                                <div>
+                                    <p class="text-xs text-gray-400 font-bold mb-2">ターゲット属性</p>
+                                    <p class="text-[14px] text-gray-900 bg-white p-3 rounded-lg border border-gray-100">保険には入っているが、病気・ケガ・入院・手術時にどう給付金・保険金を請求すればよいか分からない層。親の入院や家族の病気をきっかけに請求の重要性を感じた人、家族が把握していないことに不安がある人。保険を「入っているだけ」でなく「使える状態」にしたい。</p>
+                                </div>
+                                <div class="bg-white p-5 rounded-lg shadow-sm border border-gray-200 relative overflow-hidden">
+                                    <div class="absolute top-0 left-0 w-1 h-full bg-gray-600"></div>
+                                    <p class="text-xs text-gray-600 font-bold mb-3">インサイト構造化</p>
+                                    <ul class="text-[14px] text-gray-700 space-y-4">
+                                        <li><span class="font-bold text-gray-900 bg-gray-100 px-2 py-0.5 rounded text-xs mr-2">機能的価値</span>必要書類・記入方法の確認、請求漏れチェックまで店舗全体でサポートしてもらえる。</li>
+                                        <li><span class="font-bold text-gray-900 bg-gray-100 px-2 py-0.5 rounded text-xs mr-2">体験的価値</span>「もしもの時、請求で迷わない」準備を、不安を煽られず落ち着いて相談できる体験。</li>
+                                        <li><span class="font-bold text-gray-900 bg-gray-100 px-2 py-0.5 rounded text-xs mr-2">情緒的価値</span>保険の本質「受け取る準備」まで整い、自分も家族も慌てないという安心。</li>
+                                    </ul>
+                                </div>
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <div>
+                                        <p class="text-xs text-gray-400 font-bold mb-2">主要訴求（3点）</p>
+                                        <div class="space-y-2">
+                                            <div class="flex items-start gap-3 bg-white border border-gray-100 rounded-lg p-3 text-[13px] text-gray-700"><span class="font-bold text-gray-500 flex-shrink-0">1.</span>加入後の請求支援＝競合と最も差別化できる訴求軸</div>
+                                            <div class="flex items-start gap-3 bg-white border border-gray-100 rounded-lg p-3 text-[13px] text-gray-700"><span class="font-bold text-gray-500 flex-shrink-0">2.</span>不安を煽らず「受け取る準備／迷わない」の安心方向で訴求</div>
+                                            <div class="flex items-start gap-3 bg-white border border-gray-100 rounded-lg p-3 text-[13px] text-gray-700"><span class="font-bold text-gray-500 flex-shrink-0">3.</span>「必ず受け取れる」は不可。「手続きをサポート」に限定</div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs text-gray-400 font-bold mb-2">想定オブジェクション</p>
+                                        <div class="space-y-2">
+                                            <div class="bg-white border border-gray-100 rounded-lg p-3 text-[13px] text-gray-600">「まだ病気・ケガをしていないのに相談してよいのか」</div>
+                                            <div class="bg-white border border-gray-100 rounded-lg p-3 text-[13px] text-gray-600">「保険会社に直接聞けばよいと思っている」</div>
+                                            <div class="bg-white border border-gray-100 rounded-lg p-3 text-[13px] text-gray-600">「重いテーマなので広告で見ると不安になる」</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ④ 生成されたクリエイティブ（no1/no2/no3） -->
+                <div class="rounded-xl border bg-white shadow-sm shadow-[0_4px_12px_rgba(0,0,0,0.02)] p-6 space-y-4">
+                    <div class="flex items-center justify-between border-b border-gray-100 pb-3">
+                        <h2 class="font-bold text-lg flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-purple-600"><path d="M12 2v8"/><path d="m4.93 10.93 1.41 1.41"/><path d="M2 18h2"/><path d="M20 18h2"/><path d="m19.07 10.93-1.41 1.41"/><path d="M22 22H2"/><path d="m8 6 4-4 4 4"/><path d="M16 18a4 4 0 0 0-8 0"/></svg>
+                            生成されたクリエイティブ
+                        </h2>
+                        <span class="text-sm text-gray-500">3枚 ／ 1:1（1080×1080）</span>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-2">
+
+                        <!-- no1: 保険放置・点検 -->
+                        <div class="flex flex-col border border-gray-200 rounded-xl overflow-hidden bg-white shadow-sm">
+                            <div class="bg-[#f8f9fa] border-b border-gray-100 p-3 aspect-square flex items-center justify-center relative">
+                                <span class="absolute top-3 left-3 bg-gray-900 text-white text-[11px] font-bold px-2 py-1 rounded z-10 shadow-sm">① 放置・点検</span>
+                                <span class="absolute top-3 right-3 bg-white/90 border border-gray-200 text-gray-700 text-[11px] font-bold px-2 py-1 rounded z-10 shadow-sm">no1</span>
+                                <img src="./no1.png" alt="保険放置・点検ニーズ層向けバナー" class="w-full h-full object-cover hover:scale-[1.02] transition-transform duration-300">
+                            </div>
+                            <div class="p-5 flex-1 flex flex-col">
+                                <p class="text-[12px] text-gray-400 font-bold mb-1">キーMessage</p>
+                                <p class="text-[14px] font-bold text-gray-900 mb-3">入ったままの保険、今の暮らしに合っていますか</p>
+                                <h4 class="font-bold text-gray-900 text-[15px] mb-2 border-b border-gray-100 pb-2">クリエイティブレバー</h4>
+                                <div class="text-[13px] text-gray-700 leading-relaxed flex-1 space-y-3">
+                                    <div>
+                                        <p class="font-bold text-gray-900 mb-1 border-l-2 border-gray-400 pl-2">【 表現レイヤー 】</p>
+                                        <p>売り込みではなく<b>「点検・確認」</b>として問いかけ、ライフステージ変化で保障が合わなくなる気づきを喚起。「保険内容・満期更新・請求手続きまで無料相談」で放置防止価値を訴求。</p>
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-gray-900 mb-1 border-l-2 border-gray-300 pl-2">【 ヒーロー構図／デザインレバー 】</p>
+                                        <ul class="list-disc list-inside space-y-1 text-[12px]">
+                                            <li>白〜淡ブルー背景。ダイニングで保険証券を確認する40〜50代夫婦</li>
+                                            <li>左上〜中央に大きくキーMessage、下部に「無料相談を予約する」CTA</li>
+                                            <li>入れる：保険証券・書類・相談シーン・安心感ある表情</li>
+                                            <li>避ける：赤/黒の不安煽り・「必ず安くなる」・病気/事故の直接描写</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- no2: 保険整理・家族共有 -->
+                        <div class="flex flex-col border border-gray-200 rounded-xl overflow-hidden bg-white shadow-sm">
+                            <div class="bg-[#f8f9fa] border-b border-gray-100 p-3 aspect-square flex items-center justify-center relative">
+                                <span class="absolute top-3 left-3 bg-gray-900 text-white text-[11px] font-bold px-2 py-1 rounded z-10 shadow-sm">② 整理・家族共有</span>
+                                <span class="absolute top-3 right-3 bg-white/90 border border-gray-200 text-gray-700 text-[11px] font-bold px-2 py-1 rounded z-10 shadow-sm">no2</span>
+                                <img src="./no2.png" alt="保険整理・家族共有ニーズ層向けバナー" class="w-full h-full object-cover hover:scale-[1.02] transition-transform duration-300">
+                            </div>
+                            <div class="p-5 flex-1 flex flex-col">
+                                <p class="text-[12px] text-gray-400 font-bold mb-1">キーMessage</p>
+                                <p class="text-[14px] font-bold text-gray-900 mb-3">保険証券、すぐ見つかりますか</p>
+                                <h4 class="font-bold text-gray-900 text-[15px] mb-2 border-b border-gray-100 pb-2">クリエイティブレバー</h4>
+                                <div class="text-[13px] text-gray-700 leading-relaxed flex-1 space-y-3">
+                                    <div>
+                                        <p class="font-bold text-gray-900 mb-1 border-l-2 border-gray-400 pl-2">【 表現レイヤー 】</p>
+                                        <p>比較・乗り換えではなく<b>「まず整理する」</b>を入口に。「加入中の保険を整理して、家族にもわかりやすく」で証券ファイル／きちんとファイルの見える化価値を訴求。</p>
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-gray-900 mb-1 border-l-2 border-gray-300 pl-2">【 ヒーロー構図／デザインレバー 】</p>
+                                        <ul class="list-disc list-inside space-y-1 text-[12px]">
+                                            <li>「散らばった書類」と「整理されたファイル」の対比</li>
+                                            <li>40〜60代夫婦／親子で書類を確認する自然なシーン</li>
+                                            <li>入れる：保険証券・青いファイル・一覧表・家族・チェックマーク</li>
+                                            <li>避ける：書類の山を過度に怖く見せる・個人情報が見える書類</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- no3: 請求・もしもの不安解消（最優先） -->
+                        <div class="flex flex-col border border-gray-200 rounded-xl overflow-hidden bg-white shadow-sm">
+                            <div class="bg-[#f8f9fa] border-b border-gray-100 p-3 aspect-square flex items-center justify-center relative">
+                                <span class="absolute top-3 left-3 bg-gray-900 text-white text-[11px] font-bold px-2 py-1 rounded z-10 shadow-sm">③ 請求・不安解消</span>
+                                <span class="absolute top-3 right-3 bg-white/90 border border-gray-200 text-gray-700 text-[11px] font-bold px-2 py-1 rounded z-10 shadow-sm">no3</span>
+                                <img src="./no3.png" alt="請求・もしもの不安解消層向けバナー" class="w-full h-full object-cover hover:scale-[1.02] transition-transform duration-300">
+                            </div>
+                            <div class="p-5 flex-1 flex flex-col">
+                                <p class="text-[12px] text-gray-400 font-bold mb-1">キーMessage</p>
+                                <p class="text-[14px] font-bold text-gray-900 mb-3">もしもの時、保険の請求で迷わないために</p>
+                                <h4 class="font-bold text-gray-900 text-[15px] mb-2 border-b border-gray-100 pb-2">クリエイティブレバー</h4>
+                                <div class="text-[13px] text-gray-700 leading-relaxed flex-1 space-y-3">
+                                    <div>
+                                        <p class="font-bold text-gray-900 mb-1 border-l-2 border-gray-400 pl-2">【 表現レイヤー 】</p>
+                                        <p>多くの保険広告が見直し・比較・保険料に寄る中、<b>加入後の請求手続き支援</b>を前面に出し最も差別化。不安を煽らず「受け取る準備／迷わない」の安心方向で訴求。</p>
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-gray-900 mb-1 border-l-2 border-gray-300 pl-2">【 ヒーロー構図／デザインレバー 】</p>
+                                        <ul class="list-disc list-inside space-y-1 text-[12px]">
+                                            <li>青と白基調の落ち着いた相談シーン。請求手続きガイドを確認</li>
+                                            <li>病院・事故は描かず、書類確認／オンライン相談／家族確認を中心に</li>
+                                            <li>入れる：保険証券・必要書類・チェックリスト・ノートPC・相談員</li>
+                                            <li>避ける：病床/事故現場・「必ず受け取れる」・過度な不安煽り</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- 共通設計メモ -->
+                    <div class="rounded-xl border border-gray-100 bg-gray-50/50 p-4 mt-2">
+                        <p class="text-[13px] font-bold text-gray-700 mb-2">1:1広告 共通設計</p>
+                        <div class="flex flex-wrap gap-2 text-[12px]">
+                            <span class="bg-white border border-gray-200 text-gray-600 px-2.5 py-1 rounded-full">サイズ：1080×1080</span>
+                            <span class="bg-white border border-gray-200 text-gray-600 px-2.5 py-1 rounded-full">目的：新規問い合わせ・無料相談予約</span>
+                            <span class="bg-white border border-gray-200 text-gray-600 px-2.5 py-1 rounded-full">トーン：丁寧・信頼感・清潔感／過度に煽らない</span>
+                            <span class="bg-white border border-gray-200 text-gray-600 px-2.5 py-1 rounded-full">カラー：白・淡いブルー・ブランドブルー</span>
+                            <span class="bg-white border border-gray-200 text-gray-600 px-2.5 py-1 rounded-full">CTA：無料で相談する</span>
+                            <span class="bg-white border border-gray-200 text-gray-600 px-2.5 py-1 rounded-full">コピー構成：大見出し1本＋補足1行＋CTA</span>
+                            <span class="bg-white border border-gray-200 text-gray-600 px-2.5 py-1 rounded-full">画像内テキスト量：30%以下</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function goBack() {
+        if (window.parent && window.parent !== window) {
+            window.parent.postMessage({ type: 'hoholine:navigate', page: 'admin' }, '*');
+            return;
+        }
+        window.location.href = './管理画面.html';
+    }
+
+    function switchPersonaTab(target) {
+        document.querySelectorAll('.persona-tab-content').forEach(el => el.classList.add('hidden'));
+        document.getElementById(target).classList.remove('hidden');
+        document.querySelectorAll('.persona-tab-btn').forEach(btn => {
+            btn.className = 'persona-tab-btn text-gray-500 hover:bg-gray-200 px-4 py-1.5 text-sm font-bold rounded-[12px] transition-all';
+        });
+        event.currentTarget.className = 'persona-tab-btn bg-white shadow-sm text-gray-900 px-4 py-1.5 text-sm font-bold rounded-[12px] transition-all';
+    }
+</script>
+</body>
+</html>
